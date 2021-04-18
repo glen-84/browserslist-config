@@ -1,8 +1,8 @@
 {
-    "name": "@glen-84/browserslist-config",
+    "name": "@gosugamers/browserslist-config",
     "version": "1.0.0",
-    "description": "A shareable Browserslist config.",
-    "author": "Glen Ainscow",
+    "description": "The GosuGamers Browserslist config.",
+    "author": "Glen Ainscow <glen@gosugamers.net>",
     "main": "index.js",
     "files": [
         "index.js"
@@ -12,10 +12,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/glen-84/browserslist-config.git"
+        "url": "https://gitlab.com/gosugamers/standards/browserslist-config.git"
     },
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
+        "@gosugamers:registry": "https://gitlab.com/api/v4/projects/25974254/packages/npm/"
     },
-    "license": "MIT"
+    "license": "UNLICENSED"
 }

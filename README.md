@@ -1,24 +1,29 @@
 # Browserslist config
 
-A shareable [Browserslist](https://github.com/browserslist/browserslist) config.
+The GosuGamers [Browserslist](https://github.com/browserslist/browserslist) config.
 
 ## Installation
 
-[Authenticate](https://help.github.com/en/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages) with `npm login --registry=https://npm.pkg.github.com/` using your GitHub username and a personal access token (with the `read:packages` scope).
+You will need to set an environment variable named `GG_GITLAB_NPM_TOKEN` with the value of a [personal access token](https://gitlab.com/-/profile/personal_access_tokens) (name: `npm`, scopes: `api`), in order to install private packages with the `@gosugamers` scope (if you haven't yet done so).
 
-1. In the same directory as your `package.json` file, create or edit a `.npmrc` file to include the following line:
+1. In the same directory as your `package.json` file, create or edit a `.npmrc` file to include the following lines:
     ```npmrc
-    @glen-84:registry=https://npm.pkg.github.com
+    @gosugamers:registry=https://gitlab.com/api/v4/packages/npm/
+    //gitlab.com/api/v4/packages/npm/:_authToken=${GG_GITLAB_NPM_TOKEN}
     ```
-2. Run `npm install @glen-84/browserslist-config --save-dev`.
-3. Add `"browserslist": ["extends @glen-84/browserslist-config"]` to your `package.json` file.
+2. Run `npm install @gosugamers/browserslist-config --save-dev`.
+3. Add `"browserslist": ["extends @gosugamers/browserslist-config"]` to your `package.json` file.
 
 ## Development
 
-### Publishing a new version
+This project is effectively a clone of [@glen-84/browserslist-config](https://github.com/glen-84/browserslist-config) with a few changes for GosuGamers.
 
-[Authenticate](https://help.github.com/en/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages) with `npm login --registry=https://npm.pkg.github.com/` using your GitHub username and a personal access token (with the `write:packages` scope).
+### Pulling updates from the source
 
-1. Run `npm version patch` (replace `patch` [as necessary](https://docs.npmjs.com/cli/version)) to increase the version number.
-2. Run `git push --atomic --follow-tags` to push the version commit and tag.
-3. Run `npm publish` to publish the new version.
+1. Run `git remote add upstream https://github.com/glen-84/browserslist-config.git` (if you haven't yet done so).
+2. Run `git pull upstream master`.
+
+### Publishing the current version
+
+1. Ensure that the `GG_GITLAB_NPM_TOKEN` environment variable is set (see above).
+2. Run `npm publish` to publish the current version.
